@@ -1,0 +1,1153 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*Подключение шрифтов из файла*/
+@font-face {
+    font-family: 'sf-pro-display';
+    src: url('../fonts/SF-Pro-Display-Regular.woff2') format('woff2'),
+         url('../fonts/SF-Pro-Display-Regular.woff') format('woff');
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'sf-pro-display';
+    src: url('../fonts/SF-Pro-Display-Bold.woff2') format('woff2'),
+         url('../fonts/SF-Pro-Display-Bold.woff') format('woff');
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'spaceagecyrillic';
+    src: url('../fonts/spaceagecyrillic-regular.woff2') format('woff2'),
+         url('../fonts/spaceagecyrillic-regular.woff') format('woff');
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;/*Убрать подчеркивание*/
+    cursor: pointer;
+}
+
+button {
+    border: none;/*Отключили рамку*/
+    background-color: transparent;/*Прозрачность*/
+    cursor: pointer;/**/
+    color: inherit;
+
+}
+
+button:hover {
+    color: #CB0E0E;
+}
+
+/*по умолчанию стили этого проекта*/
+body {
+    font-family: 'sf-pro-display';
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: 400;
+
+    color: #fff;
+
+}
+
+.container {
+    max-width: 1220px;
+    margin-right: auto; /*для того чтобы выровнять по центру*/
+    margin-left: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    /* Кратко можно написать так
+    margin: 0 auto;
+    padding: 0 10px  
+    Еще момент, почему макс. ширина 1220, а не 1200, как написано в фигме. 
+    Потому что padding отнимает у margin отступы. Без паддинга будет криво, 
+    буквы будут плотно прилипать к краю страницы*/
+}
+
+.title {
+    font-family: 'spaceagecyrillic';
+    font-size: 48px;
+    line-height: 48px;
+    padding: 100px 0;
+    font-weight: 400;
+}
+
+.button {
+    padding: 20px 45px;
+    text-transform: uppercase;
+    border: 1px solid #fff;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+/*Добавили фон для header*/
+.header {
+    background-image: url(../images/header-bg.jpg);
+    /* min-height: 100vh; т.е. 100% высоты экрана. Почему-то перенесли в header__inner*/
+    background-position: center; /*Позиционирование по центру*/
+    background-repeat: no-repeat; /*чтобы не повторялись картинки...*/
+    background-size: cover; /*растянуть картинку и при этом сохранить все ее пропорции*/
+}
+
+.header__inner {
+    display: flex; /* все элементы в одну строку*/
+    flex-direction: column; /*Блоки в столбик */
+    justify-content: space-between;
+    min-height: 100vh; /*Убрали из header, поставили здесь*/
+}
+
+.header__top {
+    padding: 75px 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu__list {
+    display: flex;
+}
+
+.menu__item {
+    margin-right: 30px;
+}
+
+.menu__link {
+    text-transform: uppercase;/*большие буквы*/
+    font-size: 18px;
+    line-height: 21px;
+    /*Скорость изменения цвета слова при наведении*/
+    transition: color .5s;
+
+}
+
+/*При наведении на ссылку с помощью мыши, цвет слова меняется*/
+.menu__link:hover {
+    color: #CB0E0E;
+}
+
+.phone {
+    font-size: 24px;
+    line-height: 29px;
+    margin-left: auto;
+}
+
+.login {
+    margin-right: 134px;
+    margin-left: 22px;
+}
+
+.header__content {
+    max-width: 600px;
+}
+
+.header__title {
+    font-family: 'spaceagecyrillic';
+    font-size: 60px;
+    line-height: 60px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.header__title span {
+    font-size: 110px;
+    /* line-height: 110px; */
+}
+
+.header__text {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 400;
+}
+
+.header_btn {
+    font-size: 24px;
+    line-height: 29px;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+    border: 1px solid #fff;
+    padding: 15px 10px 16px;
+}
+
+.header__description {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+    margin-bottom: 5%;
+
+}
+
+.header__description-text {
+    width: 165px;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.header__description-text + .header__description-text {
+    margin-left: 52px;
+}
+
+/*Добавили фон*/
+.about {
+    background-image: url(../images/about-bg.jpg);
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+
+.about__item {
+    padding-bottom: 150px; /*Почему не margin? Потому что будет белый фон, если есть фоновая картинка*/
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/*Чтобы поменять местами текст и картинка для четных блоков. 
+Хотя odd - это нечетное. Сам Вадим не понял фишку:(*/
+.about__item:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+
+.about__img {
+    max-width: 100%;
+}
+
+.about__content {
+    width: 600px;
+}
+
+.about__content-title {
+    margin-bottom: 5px;
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 700;
+}
+.about__content-subtitle {
+    margin-bottom: 30px;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #036CCA;
+}
+
+.about__content-text {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+.about__content-text p {
+    width: 165px;
+}
+
+.about__table {
+    margin-bottom: 50px;
+}
+
+.about__table-caption {
+    margin-top: 20px;
+    caption-side: bottom;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: left;
+}
+
+/*Здесь создаем линии, потому что это строка*/
+.about__table-tr {
+    border: 1px solid #fff;
+    border-right: none;
+    border-left: none;
+}
+
+/*Для крупных чисел из таблицы
+.Name + . Name - это означает, что я обращаюсь к соседнему class="Name". 
+В нашем случае, это соседний <tr>, то есть второй тег <tr>
+*/
+.about__table-tr + .about__table-tr {
+    font-size: 36px;
+    line-height: 43px;
+    text-align: center;
+    font-weight: bold;
+}
+/*Здесь ячейки*/
+.about__table-td {
+    padding: 10px 30px 10px 0;
+}
+
+/*Для слов под числами второй строки */
+.about__table-td span {
+    display: block;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+/*Добавили фон*/
+.how-to{
+    background-image: url(../images/howto-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    padding-bottom: 100px;
+}
+
+.how-to__box {
+    text-align: center;
+}
+
+.how-to__box circle,
+.how-to__box text,
+foreignObject {
+    transition: all .5s; /*Замедление изменния цвета кружка и текста*/
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/*При наведении на кружок, он должен увеличиться в размерах*/
+.how-to__box g:hover circle {
+    r: 20px;
+    fill: #036CCA;
+}
+
+.how-to__box g:hover text {
+    fill: #036CCA;
+    font-size: 36px;
+}
+
+.how-to__box g:hover foreignObject {
+    color: #036CCA;
+    font-size: 22px;
+}
+
+foreignObject {
+    text-align: left;
+}
+
+.how-to__box span {
+    text-align: right;
+}
+
+.to-book {
+    background-image: url(../images/tobook-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.to-book__inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.to-book__text {
+    width: 165px;
+    font-size: 14px;
+    line-height: 17px;
+    margin-top: 100px;
+    margin-right: 52px;
+    margin-left: auto;
+}
+
+.to-book__text + .to-book__text {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.info {
+    background-image: url(../images/info-bg.jpg);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.special-offer{
+    padding-bottom: 100px;
+}
+.special-offer__inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.special-offer__item {
+    width: 500px;
+}
+.special-offer__item-box {
+    min-height: 400px;
+    border: 1px solid #fff;
+     /*отступ от бокса до кнопки "Забронировать полет"*/
+    margin-bottom: 25px;
+    padding: 40px 75px;
+    text-align: center;
+    display: flex;
+    /*Чтобы было в столбик*/
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.special-offer__item-text {
+    width: 235px;
+    font-size: 24px;
+    line-height: 29px;
+    /*Когда задана ширина 235px, 
+    то текст выравнивается по центру этой ширины.
+    А чтобы выравнивать по центру внешнего блока,
+    нужно добавить margin*/
+    margin: 0 auto;
+}
+
+.special-offer__item-text span {
+    color: #CB0E0E;
+}
+
+.special-offer__old-price {
+    font-size: 14px;
+    line-height: 17px;
+    text-align: right;
+    /*отступ между ценами*/
+    margin-bottom: 16px;
+    position: relative;
+}
+
+/*Создали красную линию зачеркивания по диагонали*/
+.special-offer__old-price::before {
+    content: '';
+    position: absolute;
+    width: 68px;
+    height: 1px;
+    background-color: #CB0E0E;
+    top: 5px;
+    right: 0;
+    transform: rotate(17.1deg);
+}
+
+.special-offer__new-price {
+    font-size: 48px;
+    line-height: 57px;
+}
+
+.special-offer__btn {
+    width: 100%;
+}
+
+.services{
+    padding-bottom: 200px;
+}
+
+.services__inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.services__box-list{
+    width: 688px;
+    margin-right: 80px;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.services__list-title {
+    margin-bottom: 25px;
+}
+
+.services__list {
+    list-style: none; /*Убрать точки из каждого пункта*/
+    margin-bottom: 25px;
+}
+
+.services__list-item {
+    padding-left: 36px;/*диаметр кружка 20px + отступ 16px*/
+    position: relative; /*Сейчас напишем в before для кружка*/
+}
+
+.services__list-item::before {
+    content: '';
+    position: absolute;
+    /*Рисуем кружок*/
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    /*Координаты*/
+    left: 0;
+    top: 4px;
+}
+
+.services__desprition {
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.services__buttons {
+    width: 500px;
+}
+
+.services__btn {
+    width: 100%;
+}
+
+.services__btn--first {
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.services__btn--first::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 41px;
+    background-image: url(../images/photo.png);
+    width: 192px;
+    height: 150px;
+}
+
+.slider {
+    text-align: center;
+}
+
+.slider__inner {
+    margin-bottom: 50px;
+    border: 1px solid #fff;
+    padding: 100px 0;
+}
+
+.slider__box-img {
+    margin: 0 auto;
+}
+.slider__description {
+    font-size: 24px;
+    line-height: 30px;
+    font-family: 'spaceagecyrillic';
+}
+
+.slider__arrow {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+}
+
+.slider__arrow-left {
+    left: 75px;
+}
+
+.slider__arrow-right {
+    right: 75px;
+}
+
+.contacts {
+    background-color: #010203;
+    padding-bottom: 100px;
+}
+
+.contacts__inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contacts__box {
+    width: 500px;
+}
+
+.contacts__title {
+    padding-bottom: 46px;
+}
+
+.contacts__box-text {
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 400;
+    max-width: 450px;
+    margin-bottom: 80px;
+}
+
+.contacts__form-input {
+    background-color: #010203;
+    border: none;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 30px;
+    color: #fff;
+    font-family: 'sf-pro-display';
+    font-size: 18px;
+    line-height: 17px;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.contacts__form-input::placeholder {
+    color: #fff;
+    font-family: 'sf-pro-display';
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 400;
+}
+
+.contacts__btn {
+    width: 100%;
+    margin-top: 70px;
+}
+
+.contacts__guarantees {
+    width: 600px;
+}
+
+.contacts__guarantees-text {
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.contacts__guarantees-img {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+    margin-bottom: 0;
+}
+
+.footer {
+    background-image: url(../images/footer-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    padding: 100px 0 150px;
+}
+
+.footer__inner {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer__text {
+    width: 165px;
+    margin-right: 50px;
+}
+
+.footer__text p + p {
+    margin-top: 50px;
+}
+
+.footer__menu {
+    list-style: none;
+    width: 120px;
+    margin-right: 95px;
+}
+
+.footer__links {
+    list-style: none;
+    width: 165px;
+}
+
+.footer__menu-item,
+.footer__links-item {
+    margin-bottom: 20px;
+}
+
+.footer__menu-link,
+.footer__links-link {
+    text-transform: uppercase;
+    transition: color .5s;
+}
+.footer__menu-link:hover,
+.footer__links-link:hover {
+    color: #CB0E0E;
+}
+
+/* Создаем кнопку бургер */
+.menu-btn {
+    display: none;
+    width: 40px;
+    height: 30px;
+    /*Чтобы средняя линия бургера стала такой же, как остальные линии, 
+    т е выравнивание (2:16 - 3 день)*/
+    padding: 0; 
+    z-index: 20;
+    position: relative;
+}
+
+/* Создание линии для кнопки меню бургер */
+.menu-btn span {
+    display: block;
+    height: 2px;
+    background-color: #fff;
+    position: relative;
+}
+
+.menu-btn span::before,
+.menu-btn span::after {
+    content: '';
+    width: 40px;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+}
+
+/* Двигаем одну линию вверх от центра */
+.menu-btn span::before {
+    top: -10px;
+}
+
+/* Двигаем одну линию вниз от центра */
+.menu-btn span::after {
+    top: 10px;
+}
+.how-to__box-list {
+    display: none;
+}
+
+/*-------- 4 день ------------ */
+@media (max-width: 1160px) {
+    /* переделаем дисплей в блок */
+    .about__item {
+        display: block;
+    }
+    .about__content {
+        width: 100%;
+    }
+    .about__content-text {
+        display: block;
+    }
+    .about__content-text p{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .about__img {
+        margin-bottom: 50px;
+    }
+    /* выравниваем по центру, кроме таблицы */
+    .about {
+        text-align: center;
+    }
+    /* Теперь фигачим таблицу */
+    .about__table {
+        width: 100%;
+    }
+
+}
+
+/* 44:50 - 4 блок Информация */
+@media (max-width: 1050px) {
+    .special-offer__inner{
+        display: block;
+    }
+    .special-offer__item{
+        width: 100%;
+    }
+    .special-offer__btn{
+        margin-bottom: 30px;
+    }
+
+    /* 1:06:00 - 4 ФОРМА */
+    .contacts__inner{
+        display: block;
+    }
+    .contacts__box{
+        width: 100%;
+    }
+    .contacts__guarantees{
+        margin: 0 auto;
+    }
+
+}
+
+@media (max-width: 1024px) {
+    .login {
+        margin-right: 0;
+    }
+    /* 40:00 - 4 */
+    .to-book__inner {
+        display: block;
+    }
+    .to-book__text {
+        width: 100%;
+        margin-top: 0;
+        margin-right: 0;
+        margin-left: 0;
+        margin-bottom: 30px;
+    }
+}
+
+/* 47:00 - 4 блок Информация кнопки фото
+НО У МЕНЯ СЛОМАЛАСЬ, ПОЭТОМУ ПИШУ ЗДЕСЬ */
+@media (max-width: 940px) {
+    .services__inner{
+        display: block;
+    }
+    .services__box-list{
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 170px;
+    }
+    .services__buttons{
+        max-width: 500px;
+        margin: 0 auto;
+        /* 54:00 - 4 
+        кнопка не уменьшается при ширине экрана 510px
+        поэтому нужно написать ширина авто*/
+        width: auto;
+    }
+}
+
+@media (max-width: 895px) {
+    /* Расположение кнопки меню и списка меню */
+    .header__top {
+        padding-top: 30px;
+    }
+    .menu-btn {
+        display: block;
+    }
+    /* Создаем список меню с темным фоном*/
+    .menu__list {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #010203;
+        padding-top: 90px;
+        padding-bottom: 30px;
+        width: 100%;
+        text-align: center;
+
+        /*Список меню не виден (2:26 - 3 день) */
+        transform: translateY(-150%); 
+        transition: all .5s;
+    }
+
+    .menu__list.active {
+        /*Список меню ВИДЕН (2:26 - 3 день) */
+        transform: translateY(0);
+        /* Далее нужно в js написать функцию для класса кнопка меню бургера
+        $('.menu-btn').on('click', function(){
+             $('.menu__list').toggleClass('active');
+         });             (2:27 - 3 день)              */
+    }
+
+    .menu__item {
+        padding: 15px 0;
+    }
+
+    /* Чтобы ссылки растянулись на всю ширину меню */
+    .menu__link {
+        display: block;
+    }
+
+    /* Всегда видно логин и номер телефона при использовании меню */
+    .phone,
+    .login {
+        position: relative;
+        z-index: 20;
+    }
+
+    /* Выравниваем все блоки по центру в header 
+    т.е. заголовок и кнопка (2:32 - 3) */
+    .header__content {
+        margin: 0 auto;
+    }
+
+    /* Выравниваем все блоки по центру 
+    т.е. 2 блока параграфа по ценру (2:32 - 3) */
+    .header__description {
+        justify-content: center;
+    }
+    /*выравниваем фоновую картинку, т.ч. космонавт был целым*/
+    .header {
+        background-position: center right;
+    }
+
+    /* Сейчас секция "Как все происходит"
+    (22:00 - 4) */
+    .how-to__box svg {
+        display: none;
+    }
+
+    .how-to__box-list {
+        display: block;
+        list-style: none;
+    }
+    /* Создаем линию и кружочки - (34:00 - 4) */
+    .how-to__box-item {
+        padding-bottom: 30px;
+        text-align: left;
+        padding-left: 20px;
+        margin-left: 20px;
+        position: relative;
+        border-left: 1px solid #fff;
+    }
+
+    .how-to__box-item:last-child{
+        border-left: none;
+    }
+
+    .how-to__box-item::before {
+        content: '';
+        position: absolute;
+        left: -10px;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #fff;
+
+    }
+    /* 47:00 - 4 блок Информация кнопки фото */
+    /* .services__inner{
+        display: block;
+    }
+    .services__box-list{
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 170px;
+    }
+    .services__buttons{
+        min-width: 500px;
+        margin: 0 auto;
+    } 
+    НЕ ПОДХОДИТ, ПИШУ В 940PX*/
+
+    /* 50:00 - 4
+    ФОТО-СЛАЙД */
+    .slick-slide img {
+        max-width: 100%;
+    }
+}
+
+/* 51:00 - 4 */
+@media (max-width: 720px){
+    .services{
+        padding-bottom: 50px;
+    }
+    .slider__inner{
+        padding: 0;
+    }
+    .slider__description{
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .info{
+        padding-bottom: 50px;
+    }
+}
+
+
+/* (2:34 - 3)  
+(54:40 - 4) БЫЛО 620, СТАЛО 640 */
+@media (max-width: 640px) {
+    .header__title {
+        font-size: 34px;
+        line-height: 30px;
+    }
+    .header__title span {
+        font-size: 60px;
+    }
+    .header__content {
+        text-align: center;
+    }
+    .header__text {
+        justify-content: center;
+        font-size: 18px;
+    }
+    .header__text p {
+        padding: 0 10px;
+    }
+    .header_btn {
+        font-size: 18px;
+        line-height: 24px;
+        width: 60%;
+    }
+    .header__description {
+        display: block;
+    }
+
+    .header__description-text{
+        width: 100%;
+        text-align: center;
+    }
+    .header__description-text + .header__description-text {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+    /* Отступ заголовка */
+    .title {
+        padding: 50px 0;
+        font-size: 38px;
+        line-height: 38px;
+    }
+
+    .about__item {
+        padding-bottom: 50px;
+    }
+
+    /* Разбираемся с таблицей (15:00 - 4) */
+    .about__table-tr:first-child {
+        /* исключаем первую строку таблицы */
+        display: none;
+    }
+    .about__table-td {
+        display: block;
+        text-align: right;
+        /* Добавим нижнюю линию ячейки каждой строки (19:30 - 4) */
+        border-bottom: 1px solid #fff;
+    }
+
+    /* Но последняя строка таблицы двойная линия, нужно отключить 
+    (20:00 -4) */
+    .about__table-td:last-child {
+        border: none;
+    }
+    .about__table-td span {
+        /* в одну строку "1 час" и т.д. (17:00 -4) */
+        display: inline-block;
+        
+    }
+    .about__table-td::before {
+        /* Появление ячейки из 1 строки исходной таблицы
+        (16:00 - 4) */
+        content: attr(aria-label);     
+        float: left; 
+    }
+
+    /* Приводим в порядок в таблице (18:30 - 4) */
+    .about__table-tr + .about__table-tr {
+        font-size: 20px;
+        line-height: 22px;
+        font-weight: 400;
+    }
+
+    /* 42:00 - 4 */
+    .to-book {
+        background-position: top left;
+    }
+
+    /* 1:08:00 гарантия */
+    /* .contacts__guarantees-img{
+        width: 100%;
+    } */
+    .contacts__guarantees {
+        width: 100%;
+    }
+    .services__title {
+        font-size: 35px;
+    }
+}
+
+/* 1:12:00 - 4 FOOTER*/
+@media (max-width: 570px){
+    .footer__inner{
+        display: block;
+    }
+    .footer__text{
+        width: 100%;
+        margin-right: 0;
+    }
+    .footer__text p + p {
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+    .footer__menu,
+    .footer__links {
+        width: 100%;
+        margin-right: 0;
+    }
+    .footer__menu{
+        margin-bottom: 50px;
+    }
+    .footer{
+        text-align: center;
+        padding-bottom: 100px;
+    }
+}
+
+/* 0:38:00 - 4 */
+@media (max-width: 480px){
+    .title{
+        font-size: 28px;
+        line-height: 28px;
+    }
+
+    /* 0:55:45 - 4 уменьшаем размер шрифта стоимости */
+    .special-offer__new-price{
+        font-size: 34px;
+        line-height: 44px;
+    }
+    .services__box-list{
+        font-size: 18px;
+        line-height: 26px;
+    }
+
+    /* 58:20 - 4 */
+    .special-offer__item-box{
+        padding: 20px 10px;
+    }
+
+    .services__title,
+    .to-book__title {
+        font-size: 23px;
+    }
+
+    /* ТЕПЕРЬ С СТРЕЛКАМИ
+    1:02:00
+    НАДО В JS*/
+
+
+    .contacts__guarantees-text{
+        font-size: 20px;
+        line-height: 26px;
+    }
+
+    .contacts__guarantees-img{
+        width: 100%;
+    }
+}
+/* 1:04:00 
+кнопка с изображением фотографа */
+@media (max-width: 371px) {
+    .services__btn--first::before{
+        bottom: 62px;
+    }
+}
+/* 3:42 - 3 */
+@media (max-width: 360px) {
+    .header__top {
+        flex-wrap: wrap;
+    }
+
+    .phone {
+        width: 100%;
+        margin-right: auto;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .menu,
+    .login {
+        order: -1;
+    }
+
+    .menu__list {
+        padding-top: 110px;
+    }
+    .header__title {
+        font-size: 28px;
+    }
+    .header__title span{
+        font-size: 32px;
+    }
+    .header_btn {
+        font-size: 16px;
+        width: 100%;
+    }
+}
